@@ -140,7 +140,7 @@ class CardScrollWidget extends StatelessWidget {
                                         color: Colors.blueAccent,
                                         borderRadius:
                                             BorderRadius.circular(20.0)),
-                                    child: Text("Read Later",
+                                    child: Text("点击查看",
                                         style: TextStyle(color: Colors.white)),
                                   ),
                                 )

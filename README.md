@@ -1,7 +1,7 @@
 # flutter_story_ui
 Youtube上看到的视频，跟着学习一下堆叠布局的使用
 #### 实现效果
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200426181550410.gif)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200426192048101.gif)
 #### 滑动效果
 
 * 使用PageView滑动来控制当前显示的位置
@@ -105,7 +105,7 @@ class CardScrollWidget extends StatelessWidget {
                                         color: Colors.blueAccent,
                                         borderRadius:
                                             BorderRadius.circular(20.0)),
-                                    child: Text("Read Later",
+                                    child: Text("点击查看",
                                         style: TextStyle(color: Colors.white)),
                                   ),
                                 )
