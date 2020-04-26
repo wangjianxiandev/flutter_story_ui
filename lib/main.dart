@@ -1,30 +1,65 @@
-# flutter_story_ui
-Youtube上看到的视频，跟着学习一下堆叠布局的使用
-#### 实现效果
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200426181550410.gif)
-#### 滑动效果
+import 'dart:math';
 
-* 使用PageView滑动来控制当前显示的位置
-```
-Stack(
-  children: <Widget>[
-    // 两者堆叠在一起。通过PageView滑动的Controller来控制当前显示的page
-    CardScrollWidget(currentPage),
-    Positioned.fill(
-      child: PageView.builder(
-        itemCount: images.length,
-        controller: controller,
-        reverse: true,
-        itemBuilder: (context, index) {
-          return Container();
-        },
+import 'package:flutter/material.dart';
+
+import 'data.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var currentPage = images.length - 1.0;
+  PageController controller;
+
+  @override
+  void initState() {
+    controller = PageController(initialPage: images.length - 1);
+    controller.addListener(() {
+      setState(() {
+        currentPage = controller.page;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Center(
+        child: Stack(
+          children: <Widget>[
+            // 两者堆叠在一起。通过PageView滑动的Controller来控制当前显示的page
+            CardScrollWidget(currentPage),
+            Positioned.fill(
+              child: PageView.builder(
+                itemCount: images.length,
+                controller: controller,
+                reverse: true,
+                itemBuilder: (context, index) {
+                  return Container();
+                },
+              ),
+            )
+          ],
+        ),
       ),
-    )
-  ],
-),
-```
-#### CardScrollWidget
-```
+    );
+  }
+}
+
 class CardScrollWidget extends StatelessWidget {
   var currentPage;
   var padding = 20.0;
@@ -127,4 +162,3 @@ class CardScrollWidget extends StatelessWidget {
     );
   }
 }
-```
