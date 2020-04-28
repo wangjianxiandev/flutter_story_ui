@@ -1,5 +1,5 @@
 # flutter_story_ui
-Youtube上看到的视频，跟着学习一下堆叠布局的使用
+Youtube上看到的视频，跟着学习一下堆叠布局的使用, 如果觉得有帮助，留个star再走叭
 #### 实现效果
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200426192048101.gif)
 #### 滑动效果
